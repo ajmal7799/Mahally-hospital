@@ -49,8 +49,7 @@ export default function AboutPage() {
     { name: "Laboratory Services", desc: "High-precision clinical testing with rapid reporting cycles.", icon: Activity },
     { name: "X-Ray & Radiology", desc: "Advanced imaging technology for accurate diagnostic assessments.", icon: ShieldCheck },
     { name: "24/7 Pharmacy", desc: "Fully stocked pharmacy providing immediate access to life-saving drugs.", icon: Compass },
-    { name: "24/7 Casualty & Emergency", desc: "State-of-the-art trauma support manned by experienced critical care physicians.", icon: Clock },
-    { name: "Home Care Service", desc: "Bringing professional nursing care, doctor visits, and sample collection directly to your home in Karinkallathani.", icon: Home }
+    { name: "24/7 Casualty & Emergency", desc: "State-of-the-art trauma support manned by experienced critical care physicians.", icon: Clock }
   ];
 
   return (
@@ -102,9 +101,8 @@ export default function AboutPage() {
                   Obstetrics, Pediatrics, Orthopedics, Pulmonology, PMR, and Dental Surgery.
                 </p>
                 <p>
-                  We are continually expanding our capacities, investing in state-of-the-art diagnostic 
-                  technologies, and introducing services like Home Care to ensure healthcare is within 
-                  reach for everyone.
+                  We are continually expanding our capacities and investing in state-of-the-art diagnostic 
+                  technologies to ensure healthcare is within reach for everyone.
                 </p>
               </div>
             </div>
@@ -202,7 +200,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 5. Core Services & Facilities (Including Home Care) */}
+      {/* 5. Core Services & Facilities */}
       <section className="w-full bg-[#F5F7F8] py-16 md:py-24 border-b border-border-color">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
           <div className="text-left mb-12">
