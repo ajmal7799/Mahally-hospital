@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Phone, Mail, Clock, ArrowRight, RefreshCw, Check } from 'lucide-react';
+import { Phone, Mail, Clock, ArrowRight, RefreshCw, Check } from 'lucide-react';
 import { doctorsData } from '../data/doctorsData';
 
 const departmentsList = [
@@ -179,10 +179,22 @@ export default function BookingPage({ initialDoctorName, setInitialDoctorName })
     const encodedMsg = encodeURIComponent(textMsg);
     const whatsappUrl = `https://wa.me/91${whatsappNumber}?text=${encodedMsg}`;
     
-    setFormSubmitted(true);
-    setTimeout(() => {
-      window.open(whatsappUrl, '_blank');
-    }, 800);
+    // Check if device is mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // On mobile, redirect immediately to prevent popup blocking and history clutter
+      window.location.replace(whatsappUrl);
+      // Reset form fields
+      handleResetForm();
+    } else {
+      setFormSubmitted(true);
+      setTimeout(() => {
+        window.open(whatsappUrl, '_blank');
+        // Reset form fields
+        handleResetForm();
+      }, 800);
+    }
   };
 
   // Get filtered lists based on selections

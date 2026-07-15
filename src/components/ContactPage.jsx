@@ -4,9 +4,7 @@ import {
   Phone, 
   Mail, 
   Clock, 
-  MessageSquare,
-  Send,
-  Calendar
+  MessageSquare
 } from 'lucide-react';
 
 export default function ContactPage() {
@@ -52,7 +50,24 @@ export default function ContactPage() {
 
     // Open WhatsApp tab targeting 9061808050
     const whatsappUrl = `https://wa.me/919061808050?text=${encodeURIComponent(messageText)}`;
-    window.open(whatsappUrl, '_blank');
+    
+    // Check if device is mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      window.location.replace(whatsappUrl);
+    } else {
+      window.open(whatsappUrl, '_blank');
+    }
+
+    // Reset all form fields after submission
+    setFormData({
+      name: '',
+      phone: '',
+      subject: '',
+      email: '',
+      message: ''
+    });
   };
 
   return (
