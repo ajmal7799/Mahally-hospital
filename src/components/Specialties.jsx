@@ -139,7 +139,12 @@ const extendedSpecialties = [
   ...specialtiesData
 ];
 
-export default function Specialties({ selectedSpecialtyIndex, setSelectedSpecialtyIndex }) {
+export default function Specialties({ 
+  selectedSpecialtyIndex, 
+  setSelectedSpecialtyIndex,
+  setCurrentPage,
+  setSelectedSpecialtyName
+}) {
   const [virtualIndex, setVirtualIndex] = useState(specialtiesData.length); // starts at 14 (first card of middle copy)
   const sliderRef = useRef(null);
   
@@ -294,7 +299,12 @@ export default function Specialties({ selectedSpecialtyIndex, setSelectedSpecial
   };
 
   const handleCardClick = (index) => {
-    setVirtualIndex(index + specialtiesData.length);
+    const spec = specialtiesData[index];
+    if (spec && setSelectedSpecialtyName && setCurrentPage) {
+      setSelectedSpecialtyName(spec.name);
+      setCurrentPage('specialty-detail');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -347,10 +357,16 @@ export default function Specialties({ selectedSpecialtyIndex, setSelectedSpecial
                 </p>
               </div>
 
-              {/* View all departments button (Not functional, just visual) */}
+              {/* View all departments button */}
               <button 
-                className="group inline-flex items-center gap-3.5 border border-primary/20 hover:border-accent text-primary hover:text-accent font-semibold text-xs tracking-wider uppercase rounded-full pl-5 pr-2 py-2 bg-transparent transition-all duration-300 cursor-default"
-                onClick={(e) => e.preventDefault()}
+                className="group inline-flex items-center gap-3.5 border border-primary/20 hover:border-accent text-primary hover:text-accent font-semibold text-xs tracking-wider uppercase rounded-full pl-5 pr-2 py-2 bg-transparent transition-all duration-300 cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (setCurrentPage) {
+                    setCurrentPage('specialties');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
               >
                 <span>View all departments</span>
                 <span className="w-8 h-8 rounded-full bg-accent-light text-accent group-hover:bg-accent group-hover:text-white flex items-center justify-center transition-all duration-300">

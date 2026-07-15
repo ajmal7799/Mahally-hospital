@@ -28,7 +28,7 @@ function App() {
   };
 
   return (
-    <div className="w-full bg-white">
+    <div className="w-full overflow-x-hidden bg-white">
       {/* Hospital Website Header */}
       <Header 
         showContactModal={showContactModal} 
@@ -77,6 +77,8 @@ function App() {
           <Specialties 
             selectedSpecialtyIndex={selectedSpecialtyIndex}
             setSelectedSpecialtyIndex={setSelectedSpecialtyIndex}
+            setCurrentPage={setCurrentPage}
+            setSelectedSpecialtyName={setSelectedSpecialtyName}
           />
           {/* Doctors Carousel Section */}
           <Doctors 

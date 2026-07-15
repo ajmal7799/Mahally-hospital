@@ -134,7 +134,18 @@ export default function Header({
             {/* Find Doctor Action Box */}
             <button 
               className="group flex items-center gap-3 px-6 bg-transparent text-left transition-opacity hover:opacity-85 focus:outline-none cursor-pointer pr-0" 
-              onClick={() => handleActionPlaceholder('Find Doctor')}
+              onClick={() => {
+                if (setCurrentPage) {
+                  setCurrentPage('home');
+                  setActiveTab('home');
+                  setTimeout(() => {
+                    const docEl = document.getElementById('doctors');
+                    if (docEl) {
+                      docEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }, 100);
+                }
+              }}
             >
               <div className="w-11 h-11 rounded-full border border-border-color flex items-center justify-center text-primary bg-white transition-all duration-250 group-hover:border-accent group-hover:text-accent group-hover:bg-accent-light">
                 <Stethoscope size={20} />
@@ -295,7 +306,18 @@ export default function Header({
           {/* Find Doctor Item */}
           <button 
             className="flex-1 flex flex-col items-center justify-center text-center active:opacity-75 border-none bg-transparent" 
-            onClick={() => handleActionPlaceholder('Find Doctor')}
+            onClick={() => {
+              if (setCurrentPage) {
+                setCurrentPage('home');
+                setActiveTab('home');
+                setTimeout(() => {
+                  const docEl = document.getElementById('doctors');
+                  if (docEl) {
+                    docEl.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }, 100);
+              }
+            }}
           >
             <span className="text-[9px] font-semibold uppercase tracking-wider text-muted-text">Find A</span>
             <span className="text-xs font-bold text-primary mt-0.5">Doctor</span>

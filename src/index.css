@@ -18,13 +18,17 @@
   --font-serif: 'Playfair Display', Georgia, serif;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   font-family: var(--font-sans);
   color: var(--color-body-text);
   background-color: #FFFFFF;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 /* Scroll smooth settings */
