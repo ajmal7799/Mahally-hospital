@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #224356;
+  --color-primary-dark: #16303F;
+  --color-accent: #418C7D;
+  --color-accent-dark: #316B5F;
+  --color-accent-light: #DCEEE9;
+  --color-secondary-bg: #F5F7F8;
+  --color-body-text: #2A2E32;
+  --color-muted-text: #6B7680;
+  --color-border-color: #E2E6E8;
+  --color-danger: #D9383A;
+  --color-danger-light: #FCE8E6;
+
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-body-text);
+  background-color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Scroll smooth settings */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animations for dialog modals */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* HERO SLIDER ANIMATIONS */
+
+/* Ken Burns slow zoom-out effect for active image */
+@keyframes heroZoomOut {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-hero-zoom {
+  animation: heroZoomOut 8000ms cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Slide in modal from left with fade */
+/* Distinct, separate animations for each content element */
+
+/* 1. Title: Smooth slide in from left + fade in */
+@keyframes slideTitleIn {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-title-in {
+  animation: slideTitleIn 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. Description: Smooth zoom-in fade */
+@keyframes zoomDescriptionIn {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-desc-in {
+  animation: zoomDescriptionIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 3. Button: Springy/elastic slide up from bottom */
+@keyframes slideButtonUp {
+  from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-btn-in {
+  animation: slideButtonUp 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Progress bar animation */
+@keyframes progressRun {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-progress {
+  animation: progressRun 8000ms linear forwards;
+}
+
+/* Glassmorphism panel styling */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
